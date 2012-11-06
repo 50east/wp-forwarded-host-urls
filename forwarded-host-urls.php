@@ -41,5 +41,6 @@ add_filter('pre_option_siteurl', 'apply_forwarded_host');
 add_filter('pre_option_url', 'apply_forwarded_host');
 add_filter('stylesheet_uri', 'replace_with_forwarded_host');
 add_filter('admin_url', 'replace_with_forwarded_host');
+add_filter('template_directory_uri', 'replace_with_forwarded_host');
 
 ?>
