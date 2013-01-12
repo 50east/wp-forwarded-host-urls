@@ -1,7 +1,7 @@
 === Forwarded Host URLs ===
 Contributors: blahed
 Tags: plugin, urls, hostname, host, links
-Stable tag: 0.0.2
+Stable tag: 0.0.3
 License: MIT
 
 Forces WordPress to build urls using the X-Forwarded-Host header, if it exists.
