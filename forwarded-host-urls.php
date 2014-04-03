@@ -46,7 +46,7 @@ function replace_content_urls($content, $url) {
   if ( !has_forwarded_host() )
     return $content;
   else
-  return preg_replace('!https?://((127|10|172|0)(\.\d{1,3}){3}|192\.168(\.\d{1,3}){2}|localhost|[\w\-]+.dev|[\w\-]+.local)(?::[0-9]+)?!', get_site_url(), $content);
+  return preg_replace('!https?://((127|10|172|0)(\.\d{1,3}){3}|192\.168(\.\d{1,3}){2}|localhost|[\w\-]+.dev|[\w\-]+.local)(?::[0-9]+)?!', '//' . forwarded_host(), $content);
 }
 
 function set_urls_to_forwarded_host() {
