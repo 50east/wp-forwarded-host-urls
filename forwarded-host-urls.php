@@ -6,7 +6,7 @@ Description:    Forces WordPress to build urls using the X-Forwarded-Host header
 Author:         blahed, nwah
 Author URI:     https://github.com/50east
 Plugin URI:     https://github.com/50east/wp-forwarded-host-urls
-Version:        0.0.4
+Version:        0.0.5
 */
 
 function has_forwarded_host() {
@@ -40,13 +40,13 @@ function cancel_canonical_redirect() {
   return false;
 }
 
-function replace_content_urls($content) {
+function replace_content_urls($content, $url) {
   $forwarded_host_url = get_option("forwarded_host_url");
 
   if ( !has_forwarded_host() )
     return $content;
   else
-    return preg_replace('!https?://((127|10|172|0)(\.\d{1,3}){3}|192\.168(\.\d{1,3}){2}|localhost|[\w\-]+.dev|[\w\-]+.local)(?::[0-9]+)?!', '//' . forwarded_host(), $content);
+  return preg_replace('!https?://((127|10|172|0)(\.\d{1,3}){3}|192\.168(\.\d{1,3}){2}|localhost|[\w\-]+.dev|[\w\-]+.local)(?::[0-9]+)?!', get_site_url(), $content);
 }
 
 function set_urls_to_forwarded_host() {
@@ -99,9 +99,9 @@ function set_urls_to_forwarded_host() {
   }
 }
 
-add_filter('pre_option_home', 'apply_forwarded_host');
-add_filter('pre_option_siteurl', 'apply_forwarded_host');
-add_filter('pre_option_url', 'apply_forwarded_host');
+// add_filter('pre_option_home', 'apply_forwarded_host');
+// add_filter('pre_option_siteurl', 'apply_forwarded_host');
+// add_filter('pre_option_url', 'apply_forwarded_host');
 add_filter('redirect_canonical', 'cancel_canonical_redirect');
 add_filter('the_content', 'replace_content_urls');
 add_filter( 'content_edit_pre', 'replace_content_urls');
