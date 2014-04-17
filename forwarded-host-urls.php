@@ -6,7 +6,7 @@ Description:    Forces WordPress to build urls using the X-Forwarded-Host header
 Author:         blahed, nwah
 Author URI:     https://github.com/50east
 Plugin URI:     https://github.com/50east/wp-forwarded-host-urls
-Version:        0.0.5
+Version:        0.0.6
 */
 
 function has_forwarded_host() {
@@ -91,7 +91,8 @@ function set_urls_to_forwarded_host() {
     'style_loader_src',
     'get_theme_root_uri',
     'stylesheet_uri',
-    'template_directory_uri'
+    'template_directory_uri',
+    'stylesheet_directory_uri'
   );
 
   foreach ( $filters as $filter ) {
