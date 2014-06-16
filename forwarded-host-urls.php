@@ -40,7 +40,7 @@ function cancel_canonical_redirect() {
   return false;
 }
 
-function replace_content_urls($content, $url) {
+function replace_content_urls($content, $post_id = NULL) {
   $forwarded_host_url = get_option("forwarded_host_url");
 
   if ( !has_forwarded_host() )
