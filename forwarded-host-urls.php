@@ -83,6 +83,8 @@ function set_urls_to_forwarded_host() {
     'wp_get_attachment_image_src',
     'wp_get_attachment_thumb_url',
     'wp_get_attachment_url',
+    'wp_get_attachment_image_srcset()',
+    'wp_get_attachment_image_sizes()',
     'wp_login_url',
     'wp_logout_url',
     'wp_lostpassword_url',
